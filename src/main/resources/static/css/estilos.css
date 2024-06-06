@@ -4,7 +4,7 @@ body{
     margin: 0;
 }
 
-header{
+.encabezado{
     position: fixed;
     background-color: #9d4cff;
     top: 0;
@@ -45,16 +45,46 @@ footer{
     height: 20px;
 }
 
-nav a {
+.nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 40px;
+}
+
+.nav-link{
+    color: white;
+    text-decoration: none;   
+}
+
+.logo{
+    font-size: 40px;
+    font-weight: bold;
+    padding: 0 40px;
+    line-height: 100px;
+}
+
+.nav-menu {
+    display: flex; /* Esto sirve para poner los elementos que están dentro, uno detrás del otro*/
+    margin-right: 40px; /* este sirve para darle un margen desde el lado derecho */
+    list-style: none; /* para quitar los puntos de la lista*/
+}
+
+.nav-menu-item {
+    font-size: 18px; /* tamaño de la letra*/
+    margin: 0 10px; /* crear un margen el primer digito significa arriba y abajo y el segundo a los lados */
+    line-height: 100px; /*darle altura con respecto lo de arriba*/
+}
+
+nav-menu-link {
     text-decoration: none;
     color: white;
     font-size: 16px;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
 }
 
-nav a:hover{
+.nav-menu-link:hover{
     background-color: #9d2bee;
     font-size: 15px;
-    animation-delay: 1s;
+    transition: 0.5s;
 }
