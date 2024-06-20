@@ -1,0 +1,28 @@
+package com.tienda.demo.service.impl;
+
+import com.tienda.demo.dao.CategoriaDAO;
+import com.tienda.demo.domain.Categoria;
+import com.tienda.demo.service.CategoriaService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CategoriaServiceImpl 
+        implements CategoriaService{
+
+    @Autowired 
+    private CategoriaDAO categoriaDao;
+    
+    @Override
+    public List<Categoria> getCategorias(boolean activos) {
+        var lista = categoriaDao.findAll();
+        
+        if (activos){ // no leer los inactivos
+            lista.removeIf(c -> !c.isActivo());
+        }
+        
+        return lista;
+    }
+    
+}
