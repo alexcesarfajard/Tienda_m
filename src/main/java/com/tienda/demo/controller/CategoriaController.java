@@ -22,6 +22,7 @@ public class CategoriaController {
     @GetMapping("/listado")
     public String listado(Model model) {
         var lista = categoriaService.getCategorias(false);
+        
         model.addAttribute("categorias", lista);
         model.addAttribute("totalCategorias", lista.size());
 
@@ -34,6 +35,7 @@ public class CategoriaController {
     @PostMapping("/guardar")
     public String guardar(Categoria categoria,
             @RequestParam MultipartFile imagenFile) {
+        
         if (!imagenFile.isEmpty()) {
             //Se sube la imagen al Storage
             categoriaService.save(categoria);

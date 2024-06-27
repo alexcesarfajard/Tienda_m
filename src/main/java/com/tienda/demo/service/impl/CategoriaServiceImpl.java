@@ -19,7 +19,7 @@ public class CategoriaServiceImpl
         var lista = categoriaDao.findAll();
         
         if (activos){ // no leer los inactivos
-            lista.removeIf(c -> !c.isActivo());
+            //lista.removeIf(c -> !c.isActivo());
         }
         
         return lista;

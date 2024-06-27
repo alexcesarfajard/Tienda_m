@@ -12,7 +12,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 import java.io.Serializable;
 import lombok.Data;
 
@@ -27,7 +26,6 @@ public class Categoria implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id_categoria")
     private Long idCategoria;
-    
     private String descripcion;
     private String rutaImagen;
     private boolean activo;
