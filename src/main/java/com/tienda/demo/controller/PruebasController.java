@@ -1,5 +1,6 @@
 package com.tienda.demo.controller;
 
+import com.tienda.demo.domain.Categoria;
 import com.tienda.demo.domain.Producto;
 import com.tienda.demo.service.CategoriaService;
 import com.tienda.demo.service.ProductoService;
@@ -33,10 +34,10 @@ public class PruebasController {
         return "/pruebas/listado";
     }
 
-    @GetMapping("/listado/{idProducto}")
-    public String listado(Producto producto, Model model) {
-        producto = productoService.getProducto(producto);
-        model.addAttribute("producto", producto); 
+    @GetMapping("/listado/{idCategoria}")
+    public String listado(Categoria categoria, Model model) {
+        var productos = categoriaService.getCategoria(categoria).getProductos();
+        model.addAttribute("productos", productos); 
         
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
