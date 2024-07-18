@@ -22,12 +22,12 @@ public class PruebasController {
     private ProductoService productoService;
     @Autowired
     private CategoriaService categoriaService;
-    
+
     @GetMapping("/listado")
     public String listado(Model model) {
         var productos = productoService.getProductos(false);
         model.addAttribute("productos", productos);
-        
+
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
 
@@ -37,12 +37,34 @@ public class PruebasController {
     @GetMapping("/listado/{idCategoria}")
     public String listado(Categoria categoria, Model model) {
         var productos = categoriaService.getCategoria(categoria).getProductos();
-        model.addAttribute("productos", productos); 
-        
+        model.addAttribute("productos", productos);
+
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
-        
+
         return "/pruebas/listado";
     }
 
+    @GetMapping("/listado2")
+    public String listado2(Model model) {
+        var productos = productoService.getProductos(false);
+        model.addAttribute("productos", productos);
+
+        return "/pruebas/listado2";
+    }
+
+    @PostMapping("/consulta1")
+    public String consulta1(
+            @RequestParam(value="precioInf") double precioInf,//Recuperando el precio inferior enviado desde el html
+            @RequestParam(value="precioSup") double precioSup, // Recuperando el precio superior enviado desde el html
+            Model model) {
+        
+        var productos = productoService.consulta1(precioInf, precioSup);
+        model.addAttribute("productos", productos);
+        model.addAttribute("precioInf", precioInf);
+        model.addAttribute("precioSup", precioSup);
+            
+        
+        return "/pruebas/listado2";
+    }
 }

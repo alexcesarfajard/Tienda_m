@@ -63,8 +63,12 @@ Esta es la primera página html dinamica
             </section>
         </header>
 
-        <footer th:fragment="footer">
-            <h3>Este es el footer</h3>
+        <footer th:fragment="footer" class="bg-info text-white mt-5 p-2">
+            <div class="col">
+                <p class="lead text-center">
+                    &copy; [[#{plantilla.derechos}]]
+                </p>
+            </div>
         </footer>
 
     </body>

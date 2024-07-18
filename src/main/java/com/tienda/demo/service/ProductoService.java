@@ -19,4 +19,7 @@ public interface ProductoService {
     
     //Se elimina el registro que tiene idProducto
     public void delete(Producto producto);
+    
+    //Retorna una lista de productos que se encuentra en un rango de precio
+    public List<Producto> consulta1(double precioInf, double precioSup);
 }
