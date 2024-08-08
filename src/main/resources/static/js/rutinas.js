@@ -13,3 +13,15 @@ function readURL(input){
     }
 }
 
+//La siguiente función, agrega en el carrito de compras un producto
+//En la variable de sesión items, hace un llamado Ajax
+function addCart(form){
+    Window.alert("hola");
+    
+    var valor = form.elements[0].value;
+    var existencias = form.elements[1].value;
+    if (existencias > 0) {
+        var url = "/carrito/agregar/" + valor;
+        $("#resultsBlock").load(url);
+    }
+}
