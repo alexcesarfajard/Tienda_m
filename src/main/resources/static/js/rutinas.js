@@ -13,8 +13,8 @@ function readURL(input){
     }
 }
 
-//La siguiente función, agrega en el carrito de compras un producto
-//En la variable de sesión items, hace un llamado Ajax
+/*La siguiente función, agrega en el carrito de compras un producto
+En la variable de sesión items, hace un llamado Ajax*/
 function addCart(form){
     Window.alert("hola");
     

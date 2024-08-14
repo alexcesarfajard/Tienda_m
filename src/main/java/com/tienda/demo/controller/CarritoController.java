@@ -5,6 +5,7 @@ import com.tienda.demo.domain.Producto;
 import com.tienda.demo.service.ItemService;
 import com.tienda.demo.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,9 @@ public class CarritoController {
     private ItemService itemService;
     @Autowired
     private ProductoService productoService;
+    
+    @Value("${tcambio}")
+    private double tCambio;
 
     //Para ver el carrito
     @GetMapping("/carrito/listado")
@@ -30,6 +34,10 @@ public class CarritoController {
         }
         model.addAttribute("carritoTotal",
                 carritoTotalVenta);
+        model.addAttribute("totalDolares", 
+                (double)(Math.round(carritoTotalVenta/tCambio*100)/100));
+        model.addAttribute("precioVenta", tCambio);
+        
         return "/carrito/listado";
     }
 

@@ -1,7 +1,9 @@
 package com.tienda.demo;
 
+import com.paypal.base.rest.APIContext;
 import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -119,7 +121,6 @@ public class ProjectConfig implements WebMvcConfigurer {
 //                .build();
 //        return new InMemoryUserDetailsManager(user, sales, admin);
 //    }
-    
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -128,6 +129,22 @@ public class ProjectConfig implements WebMvcConfigurer {
             throws Exception {
         build.userDetailsService(userDetailsService)
                 .passwordEncoder(new BCryptPasswordEncoder());
+    }
+
+    // para integracion de paypal
+    //Para integración con payPal
+    @Value("${paypal.client-id}")
+    private String clientId;
+
+    @Value("${paypal.client-secret}")
+    private String clientSecret;
+
+    @Value("${paypal.mode}")
+    private String mode;
+
+    @Bean
+    public APIContext apiContext() {
+        return new APIContext(clientId, clientSecret, mode);
     }
 
 }
