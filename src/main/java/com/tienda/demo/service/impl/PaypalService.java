@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class PaypalService {
-
+    /*
     @Autowired
     private APIContext apiContext;
 
@@ -73,4 +73,5 @@ public class PaypalService {
         paymentExecution.setPayerId(payerId);
         return payment.execute(apiContext, paymentExecution);
     }
+*/
 }

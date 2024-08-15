@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
+/*
+
+La implementación de Paypal está dando error al momento de dar Build & Clean, por lo que está comentado
+para revisar y corregir posteriormente
 
 @Controller
 @RequiredArgsConstructor
@@ -78,4 +82,5 @@ public class PaypalController {
     public String paymentError() {
         return "/paypal/pagoError";
     }
-}
+
+} */
